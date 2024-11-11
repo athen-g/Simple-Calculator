@@ -8,11 +8,13 @@ GtkWidget *entry3; // Entry widget for the second number
 GtkWidget *result_label; // Label widget to display the result
 
 // Function to calculate the factorial of a number
-double factorial(int n) {
+double factorial(int n) 
+{
     if (n < 0) return -1; // Return -1 for negative numbers
     if (n == 0) return 1; // 0! is 1
     double result = 1;
-    for (int i = 1; i <= n; i++) {
+    for (int i = 1; i <= n; i++) 
+    {
         result *= i;
     }
     return result;
@@ -44,7 +46,8 @@ void calculate(GtkWidget *widget, gpointer data)
         break;
 
         case '/' : 
-            if (b == 0) {
+            if (b == 0) 
+            {
                 gtk_label_set_text(GTK_LABEL(result_label), "Error: Division by zero.");
                 return;
             }
@@ -122,12 +125,18 @@ int main(int argc, char *argv[])
     entry = gtk_entry_new(); // Create a new entry for the function
     gtk_grid_attach(GTK_GRID(grid), entry, 1, 2, 1, 1); // Attach the entry to the grid
 
+    blank = gtk_label_new(""); // Create a new blank label
+    gtk_grid_attach(GTK_GRID(grid), blank, 0, 7, 2, 1); // Attach the blank label to the grid
+
     // Create and add the first number label and entry to the grid
     label2 = gtk_label_new("Enter first number:"); // Create a new label for the first number
     gtk_grid_attach(GTK_GRID(grid), label2, 0, 3, 1, 1); // Attach the label to the grid
 
     entry2 = gtk_entry_new(); // Create a new entry for the first number
     gtk_grid_attach(GTK_GRID(grid), entry2, 1, 3, 1, 1); // Attach the entry to the grid
+
+    blank = gtk_label_new(""); // Create a new blank label
+    gtk_grid_attach(GTK_GRID(grid), blank, 0, 7, 2, 1); // Attach the blank label to the grid
 
     // Create and add the second number label and entry to the grid
     label3 = gtk_label_new("Enter second number:"); // Create a new label for the second number
